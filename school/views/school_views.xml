@@ -1,0 +1,62 @@
+<odoo>
+	<data>
+		<record id="school_view_tree" model="ir.ui.view"> <!--khai báo dưới dạng bảng ghi của model "ir.ui.view" -->
+			<!-- id là một id định danh cho bản ghi, nó cho phép tham chiếu đến bản 
+				ghi. -->
+			<field name="name">school.view.tree</field> <!--tên của bản ghi -->
+			<field name="model">school</field> <!--cấu hình bản ghi theo model School -->
+			<field name="arch" type="xml"> <!--view được định nghĩa trong phần thân thẻ arch -->
+				<tree> <!-- dữ liệu được khai báo dưới dạng list -->
+					<field name="name_school" />
+					<field name="email_school" />
+					<field name="address_school" />
+					<field name="student_ids" />
+				</tree>
+			</field>
+		</record>
+		<record id="school_view_form" model="ir.ui.view">
+			<field name="name">school.view.form</field>
+			<field name="model">school</field>
+			<field name="arch" type="xml">
+				<form> <!-- dữ liệu được khai báo dưới dạng tờ khai -->
+					<sheet> <!-- căn lề -->
+						<sheet>
+							<group> <!-- nhóm dữ liệu thành từng nhóm -->
+								<field name="image_school" string="School's Image"
+									widget="image" />
+							</group>
+						</sheet>
+						<group>
+							<field name="name_school" />
+							<field name="email_school" />
+							<field name="address_school" />
+							<field name="student_ids" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="school_view_search" model="ir.ui.view">
+			<field name="name">school.view.search</field>
+			<field name="model">school</field>
+			<field name="arch" type="xml">
+				<search string="search school">
+					<field name="name_school" />
+					<field name="email_school" />
+					<field name="address_school" />
+				</search>
+			</field>
+		</record>
+
+
+		<record id="action_school" model="ir.actions.act_window"> <!-- action và menu là các bản ghi thông thường của model: ir.actions.act_window -->
+			<field name="name">School</field>
+			<field name="res_model">school</field> <!--lấy tên mô hình để đại diện cho hành động ở của sổ -->
+			<field name="view_mode">tree,form</field> <!--chế độ xem của action,thứ tự cua các view -->
+		</record>
+		<menuitem id="menu_school" name="School"
+			action="action_school" groups="base.group_user" /> <!--thêm vào menu của odoo,Các hành động xác định hành vi của hệ thống để 
+			đáp ứng với các hành động của người dùng,groups="base.group_use:phân quyền 
+			người truy cập -->
+	</data>
+</odoo>

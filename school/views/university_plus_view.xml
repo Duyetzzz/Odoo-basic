@@ -1,0 +1,67 @@
+<odoo>
+	<data>
+		<record id="university_school_plus_view_tree"
+			model="ir.ui.view">
+			<field name="name">university.school.plus.view.tree</field>
+			<field name="model">universiy_plus</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name_school" />
+<!-- 					<field name="student_ids" />
+ -->					<!-- <field name="student_ids" /> -->
+				</tree>
+			</field>
+		</record>
+		<record id="fffff_form"
+			model="ir.ui.view">
+			<field name="name">university.school.plus.view.form</field>
+			<field name="model">universiy_plus</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<sheet>
+							<group> <!-- nhóm dữ liệu thành từng nhóm -->
+								<field name="image_school" string="Image's School"
+									widget="image" />
+							</group>
+						</sheet>
+
+						<group>
+					
+							<field name="scholarships" />
+							<field name="beautifull_campus" />
+							<field name="big_library" />
+						</group>
+
+						<group>
+							<field name="name_school" />
+							<field name="name_school_in" />
+						</group>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="school_university_plus_view_search"
+			model="ir.ui.view">
+			<field name="name">school.university.plus.view.search</field>
+			<field name="model">universiy_plus</field>
+			<field name="arch" type="xml">
+				<search string="Search university">
+					<field name="scholarships" />
+					
+				</search>
+			</field>
+		</record>
+
+		<record id="action_university_plus"
+			model="ir.actions.act_window"> <!-- action và menu là các bản ghi thông thường của model: ir.actions.act_window -->
+			<field name="name">university plus</field>
+			<field name="res_model">universiy_plus</field> <!--lấy tên mô hình để đại diện cho hành động ở của sổ -->
+			<field name="view_mode">tree,form</field> <!--chế độ xem của action,thứ tự cua các view -->
+		</record>
+		<menuitem id="menu_university_plus" name="University plus"
+			action="action_university_plus" groups="base.group_user" />
+	</data>
+</odoo>

@@ -1,0 +1,97 @@
+<odoo>
+	<data>
+		<record id="student_view_tree" model="ir.ui.view">
+			<field name="name">Student.tree</field>
+			<field name="model">student</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name_student" />
+					<field name="address_student" />
+					<field name="gender_student" />
+					<field name="class_student" />
+					<field name="email_student" />
+					<field name="school_id" />
+				</tree>
+			</field>
+		</record>
+		<record id="student_view_form" model="ir.ui.view">
+			<field name="name">Student.form</field>
+			<field name="model">student</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<div>
+							<label for="name_student" string="Student Name"/>
+								<h1>
+									<field name="name_student" placeholder="Into Name Student" />
+								</h1>
+							
+						</div>
+						<group>
+							<group>
+								<field name="year_of_bird" />
+								<field name="age_student" />
+								<field name="gender_student" />
+								<field name="tien_hoc" />
+								<field name="hien_thi" />
+								<field name="dem_tin_chi" />
+								<field name="len_mon_hoc" />
+								<!-- <field name="tinder" /> -->
+							</group>
+							<group>
+								<field name="class_student" />
+								<field name="address_student" />
+								<field name="school_id" />
+								<field name="object_ids" />
+							</group>
+							<notebook>
+								<page string="More Information">
+									<group>
+										<field name="email_student" />
+										<field name="phone_number" />
+									</group>
+								</page>
+								<page string="Additinoal Information">
+								 <group>
+									<group string="Images">
+										<field name="image_student" string="Student's Imange"
+											widget="image" />
+									</group>
+								 </group>
+								</page>
+							</notebook>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="student_view_search" model="ir.ui.view">
+			<field name="name">Student.search</field>
+			<field name="model">student</field>
+			<field name="arch" type="xml">
+				<search string="search student">
+					<field name="name_student" />
+					<field name="email_student" />
+					<field name="school_id" />
+					<group string='Filters'>
+						<filter name="age_filter" string="Less than (&lt;24 year old)" domain = "[('age_student','&lt;',24)]"/>
+						<separator/>
+						<filter name="male_filter" string="Male" domain="[('gender_student','=','male')]"/>
+						<filter name="female_filter" string="Female" domain="[('gender_student','=','female')]" />
+					</group>
+					<group string="Group by...">
+						<filter string="Address" name="address_group" context="{'group_by':'address_student'}" />
+						<filter string="School" name="school_group" context="{'group_by':'school_id'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+		<record id="student_acction" model="ir.actions.act_window">
+			<field name="name">Student</field>
+			<field name="res_model">student</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="menu_student" name="Student"
+			action="student_acction" groups="base.group_user" />
+	</data>
+</odoo>

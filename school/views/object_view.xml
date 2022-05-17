@@ -1,0 +1,40 @@
+<odoo>
+	<data>
+		<record id="object_view_tree" model="ir.ui.view">
+			<field name="name">object.view.tree</field>
+			<field name="model">object</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="name_object" />
+					<field name="name_teacher" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="object_view_form" model="ir.ui.view">
+			<field name="name">object.view.form</field>
+			<field name="model">object</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="name_object" />
+							<field name="name_teacher" />
+							<field name="tin_chi" />
+							<field name="students_ids"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record id="object_action" model="ir.actions.act_window">
+			<field name="name">Object</field>
+			<field name="res_model">object</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+		<menuitem id="object_menu" name ="Object" action="object_action" groups="base.group_user"/> 
+	</data>
+</odoo>

@@ -1,0 +1,14 @@
+<odoo>
+	<data>
+		<record id="university_school_view_form" model="ir.ui.view" >
+			<field name="name">university.school.view.form</field>
+			<field name="model">school</field>
+			<field name="inherit_id" ref="school.school_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//field[@name='name_school']" position="before">
+					<field name ="main_major" />
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

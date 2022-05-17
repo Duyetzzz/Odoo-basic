@@ -1,0 +1,57 @@
+<odoo>
+	<data>
+		<record id="tuition_university_school_view_tree" model="ir.ui.view">
+			<field name="name">tuition.university.school.plus.view.tree</field>
+			<field name="model">tuition.university</field>
+			<field name="arch" type="xml">
+			  <tree>
+				<field name="name_school" />
+				<field name="student_ids" />
+		
+			  </tree>
+			</field>
+		</record>
+		<record id="vip_basic_view_form" model="ir.ui.view">
+			<field name="name">tuition.university.school.view.form</field>
+			<field name="model">tuition.university</field>
+			<field name="arch" type="xml">
+				<form>
+				  <sheet>
+				  	<sheet>
+					  <group>
+					  	<field name ="image_school" string="Image's School" widget="image" />
+					  </group>
+                    </sheet> 
+					<group>
+						<field name="name_school" />
+						<field name="tuition_university_ids" />
+						<field name="final_tution" />
+						<field name="class_type" />
+					</group>
+					<group>
+						<field name="student_ids" />
+					
+					</group>
+				  </sheet>
+				</form>
+			</field>
+		</record>
+		<record id="tuition_school_university_view_search" model="ir.ui.view">
+			<field name="name">tuition.school.university.plus.view.search</field>
+			<field name="model">tuition.university</field>
+			<field name="arch" type="xml">
+				<search string="Search university">
+					<field name="student_ids" />
+				</search>
+			</field>
+		</record>
+
+		<record id="action_tuition_university" model="ir.actions.act_window"> <!-- action và menu là các bản ghi thông thường của model: ir.actions.act_window -->
+			<field name="name">Tuition university</field>
+			<field name="res_model">tuition.university</field> <!--lấy tên mô hình để đại diện cho hành động ở của sổ -->
+			<field name="view_mode">tree,form</field> <!--chế độ xem của action,thứ tự cua các view -->
+		</record>
+		<menuitem id="menu_tuition_university" name="Tuition University"
+			action="action_tuition_university" groups="base.group_user"/>
+	</data>
+</odoo>
